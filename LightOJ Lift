@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    
+    for (int i = 1; i <= T; ++i) {
+        int a, b;
+        cin >> a >> b;
+        
+        int distance = abs(a - b) + a;
+        int totalTime = distance * 4 + 19;
+        
+        cout << "Case " << i << ": " << totalTime << endl;
+    }
+    
+    return 0;
+}
