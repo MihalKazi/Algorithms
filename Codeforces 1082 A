@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+#include <climits>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        long long n, x, y, d;
+        cin >> n >> x >> y >> d;
+        
+        if (x == y) {
+            cout << 0 << endl;
+            continue;
+        }
+        
+        long long ans = LLONG_MAX;
+        
+        if (abs(y - x) % d == 0) {
+            ans = abs(y - x) / d;
+        } else {
+            if ((y - 1) % d == 0) {
+                ans = min(ans, (y - 1) / d + (x - 1 + d - 1) / d);
+            }
+            if ((n - y) % d == 0) {
+                ans = min(ans, (n - y) / d + (n - x + d - 1) / d);
+            }
+        }
+        
+        if (ans == LLONG_MAX) {
+            cout << -1 << endl;
+        } else {
+            cout << ans << endl;
+        }
+    }
+    return 0;
+}
